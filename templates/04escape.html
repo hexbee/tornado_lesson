@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{% autoescape None %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login OK Page</title>
+</head>
+<body>
+    <h1>欢迎用户 {{ username }} 登录</h1>
+
+    {% if username!='no' %}
+        欢迎用户 {{ username }}
+    {% else %}
+        您还未登录<br>
+    {% end %}
+
+    {% for url in urllist %}
+        <a href="{{ url[0] }}" target="_blank">{{ url[1] }}</a><br>
+    {% end %}
+
+    {{ atga }} <br>
+    {% raw atga %} <br>
+    {{ escape(atga) }} <br>
+
+    <script>
+        src="{{ static_url('js/jquery-2.2.0.min.js') }}"
+    </script>
+
+    <script>
+        src="/static/js/jquery-2.2.0.min.js"
+    </script>
+
+</body>
+</html>
