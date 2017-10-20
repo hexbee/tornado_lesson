@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Module</title>
+</head>
+<body>
+
+{{ username }} <br>
+{{ fun() }} <br>%}
+{{ cal() }} <br>
+{{ cal().sum(2,3) }} <br>
+{% import time %}
+{{ time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time())) }}
+{% from utils.mode_file import sub, upper, Count %}
+{{ sub(5,3) }} <br>
+{{ upper('hahaha') }} <br>
+{{ Count().url }} <br>
+{% raw Count().url %} <br>
+{{ Count().sum(6,9) }} <br>
+{{ Count.sum(6,9) }} <br>
+{{ Count().args('a', 'bb', 'ccc') }} <br>
+{{ methods1() }} <br>
+{{ methods2() }} <br>
+{% module UiModule() %}
+
+
+</body>
+</html>
