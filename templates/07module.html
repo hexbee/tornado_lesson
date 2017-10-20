@@ -10,8 +10,10 @@
 {{ fun() }} <br>%}
 {{ cal() }} <br>
 {{ cal().sum(2,3) }} <br>
+
 {% import time %}
 {{ time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time())) }}
+
 {% from utils.mode_file import sub, upper, Count %}
 {{ sub(5,3) }} <br>
 {{ upper('hahaha') }} <br>
@@ -20,11 +22,28 @@
 {{ Count().sum(6,9) }} <br>
 {{ Count.sum(6,9) }} <br>
 {{ Count().args('a', 'bb', 'ccc') }} <br>
+
 {{ methods1() }} <br>
 {{ methods2() }} <br>
 {% module UiModule() %}
 {% module AdModule() %}
 
+{% set su = Count().sum %}
+{{ su(6,9) }}
+
+{% set args = Count().args %}
+{% for a in args(1,2,3,4,5) %}
+    {{ a }} <br>
+{% end %}
+
+{% apply upper %}
+<br>
+aa bb cc dd <br>
+ee ff gg hh <br>
+{% end %}
+
+{{ linkify('百度：http://www.baidu.com') }} <br>
+{% raw linkify('百度：http://www.baidu.com') %} <br>
 
 </body>
 </html>
