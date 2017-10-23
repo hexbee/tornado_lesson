@@ -17,12 +17,12 @@ def search_user():
     # print row
     # row = session.query(User).filter_by(id=1).all()
     # print row
-    row = session.query(User).filter(User.username=='user_c').all()
+    row = session.query(User).filter(User.username == 'user_c').all()
     print row[0].locked
 
 
 def update_user():
-    row = session.query(User).filter_by(username='user_c').update({User.password: 'CCC123'})
+    session.query(User).filter_by(username='user_c').update({User.password: 'CCC123'})
     session.commit()
 
 
