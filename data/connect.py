@@ -1,11 +1,11 @@
 # coding:utf8
 from sqlalchemy import create_engine
 
-HOSTNAME='localhost'
+HOSTNAME='106.14.212.108'
 PORT='3306'
 DATABASE='tornado_db'
-USERNAME='root'
-PASSWORD='root'
+USERNAME='admin'
+PASSWORD='Admin@123'
 
 db_url='mysql+pymysql://{}:{}@{}/{}?charset=utf8'.format(USERNAME, PASSWORD, HOSTNAME, DATABASE)
 engine = create_engine(db_url)

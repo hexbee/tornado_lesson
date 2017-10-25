@@ -2,13 +2,13 @@ from user_modules import User, session
 
 
 def add_user():
-    session.add(User(username='user_a', password='aaa123'))
-    # session.add_all(
-    #     [
-    #         User(username='user_b', password='bbb123'),
-    #         User(username='user_c', password='ccc123')
-    #     ]
-    # )
+    # session.add(User(username='user_a', password='aaa123'))
+    session.add_all(
+        [
+            User(username='user_b', password='bbb123'),
+            User(username='user_c', password='ccc123')
+        ]
+    )
     session.commit()
 
 
