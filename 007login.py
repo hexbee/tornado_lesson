@@ -13,9 +13,11 @@ from data.user_modules import User, session
 
 define(name='port', default=8000, help='run port', type=int)
 
+
 class AuthError(Exception):
     def __init__(self, msg):
         super(AuthError, self).__init__(msg)
+
 
 class IndexHandler(tornado.web.RequestHandler):
     def get(self):
@@ -28,10 +30,10 @@ class LoginHandler(tornado.web.RequestHandler):
         self.render('08login.html', error=None)
 
     def post(self):
-        username = User.by_name(self.get_argument('name',''))
+        username = User.by_name(self.get_argument('name', ''))
         pwd = self.get_argument('password', '')
         if username and username[0].password == pwd:
-            self.render('08sqlalchemy.html', username=username[0].password)
+            self.render('08sqlalchemy.html', username=username[0].username)
         else:
             self.render('08login.html', error='登录失败！')
 
@@ -55,7 +57,7 @@ class RegisterHandler(tornado.web.RequestHandler):
     def _check_arg(self):
         username = self.get_argument('name', '')
         pwd = self.get_argument('password1', '')
-        if len(username)<10 and len(pwd)<10:
+        if len(username) < 10 and len(pwd) < 10:
             return True
         else:
             return False
@@ -77,7 +79,7 @@ class CancellationHandler(tornado.web.RequestHandler):
         self.render('08cancellation.html', error=None)
 
     def post(self):
-        get_username = self.get_argument('name','')
+        get_username = self.get_argument('name', '')
         del_username = User.by_name(get_username)
         pwd = self.get_argument('password', '')
         if del_username and del_username[0].password == pwd:
