@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>销户</title>
+</head>
+<body>
+{% if error %}
+    {{ error }}
+{% end %}
+
+    <h1>销户页面：</h1>
+    <form method="post" action="/cancel">
+        <p>用户名<br><input type="text" name="name"></p>
+        <p>输入密码<br><input type="password" name="password"></p>
+        <input type="submit" value="危险：确认销户">
+    </form>
+</body>
+</html>

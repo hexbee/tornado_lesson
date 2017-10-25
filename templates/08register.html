@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+</head>
+<body>
+{% if error %}
+    {{ error }}
+{% end %}
+
+    <h1>用户注册页面：</h1>
+    <form method="post" action="/register">
+        <p>用户名<br><input type="text" name="name"></p>
+        <p>输入密码<br><input type="password" name="password1"></p>
+        <p>确认密码<br><input type="password" name="password2"></p>
+        <input type="submit">
+    </form>
+</body>
+</html>

@@ -2,6 +2,7 @@
   <dictionary name="Jiaminfeng">
     <words>
       <w>pymysql</w>
+      <w>sqlalchemy</w>
     </words>
   </dictionary>
 </component>
