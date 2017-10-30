@@ -19,8 +19,10 @@ class IndexHandler(tornado.web.RequestHandler):
     def get(self):
         id = self.get_secure_cookie(name='ID')
         if id:
-            self.write('登录成功---index')
+            self.write('index---欢迎%s登录' %id)
         else:
+            self.write('index---未登录')
+            time.sleep(3)
             self.redirect('/cookie_login')
 
 
@@ -33,8 +35,8 @@ class CookieLoginHandler(tornado.web.RequestHandler):
         pwd = self.get_argument('password', '')
         if username and username[0].password == pwd:
             self.set_secure_cookie(name='ID', value=username[0].username, max_age=120)
-            self.write('登录成功---post')
-            time.sleep(3)
+            self.write('登录成功...正在跳转...')
+            time.sleep(5)
             self.redirect('/index')
         else:
             self.render('09login.html', error='登录失败！')
