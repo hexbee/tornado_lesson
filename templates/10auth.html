@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>带cookie登录</title>
+</head>
+<body>
+
+{% if error %}
+    {{ error }}
+{% end %}
+
+<h1>用户登录页面：</h1>
+
+<form method="post" action="/cookie_login?next={{ next_name }}">
+    {% module xsrf_form_html() %}
+    <p>用户名<br><input type="text" name="name"></p>
+    <p>密&emsp;码<br><input type="password" name="password"></p>
+    <input type="submit">
+</form>
+
+</body>
+</html>

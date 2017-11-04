@@ -1,6 +1,6 @@
 from datetime import datetime
 from sqlalchemy import Column, Integer, String, DateTime, Boolean
-from connect import Base, session
+from .connect import Base, session
 
 
 class User(Base):
