@@ -59,6 +59,9 @@ class MessageWSHandler(BaseWebSocketHandler):
             u.write_message('%s-%s-说：%s' % (self.current_user, datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'), message))
 
     def on_close(self):
+        if self in MessageWSHandler.users:
+            MessageWSHandler.users.remove(self)
+        print(MessageWSHandler.users)
         print('---close---')
 
 
