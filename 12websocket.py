@@ -1,4 +1,4 @@
-# coding:utf-8
+# -*- coding: utf-8 -*-
 import tornado.httpserver
 import tornado.ioloop
 import tornado.options
@@ -14,6 +14,10 @@ from data.user_modules import User, session
 from tornado.web import authenticated
 from pycket.session import SessionMixin
 import datetime
+
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 define(name='port', default=8000, help='run port', type=int)
 
