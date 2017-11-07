@@ -43,7 +43,7 @@ class IndexHandler(BaseHandler):
     @authenticated
     def get(self):
         # self.write('<h1>index---【已登录】</h1><br><a href="/logout">退出登录</a>')
-        self.render('11websocket.html')
+        self.render('11websocket_new.html')
 
 
 class MessageWSHandler(BaseWebSocketHandler):

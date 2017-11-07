@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WebSocket</title>
+</head>
+<body>
+    <div>
+        <textarea id="text"></textarea>
+        <a href="javascript:WebSocketSend();">发送</a>
+    </div>
+
+    <div id="messages" style="height: 500px;overflow: auto;"></div>
+
+    <script src="{{ static_url('js/jquery-2.2.0.min.js') }}"></script>
+
+    <script type="text/javascript">
+        var msg = document.getElementById('messages');
+        if("WebSocket" in window){
+            msg.innerHTML = "发送WebSocket请求成功！";
+            var ws = new WebSocket("ws://127.0.0.1:8000/websocket");
+            ws.onopen = function () {
+                alert('连接以打开，请开始聊天！')
+            };
+            ws.onmessage = function (p1) {
+                var received_msg = p1.data;
+                console.log(received_msg);
+                var aLi = $("<li>"+received_msg+"<li>");
+                $(msg).append($(aLi))
+            };
+            ws.onclose = function () {
+                msg.innerHTML = msg.innerHTML + "<br>连接已经关闭！！！<br>";
+            };
+        } else {
+            msg.innerHTML = "发送WebSocket请求失败！";
+        }
+        function WebSocketSend() {
+            ws.send($("#text").val());
+        }
+    </script>
+</body>
+</html>
